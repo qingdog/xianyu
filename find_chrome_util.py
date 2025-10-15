@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 
 
 def get_win_browser_path(path=C, file_list=None, program_name=r(i)chrome.exe$, program_dir=r(i)Program FilesAppData, depth_path=r.Users[^]+$)
-    使用windows软件的默认安装目录查找exe文件（Program FilesUsers）
+    '''使用windows软件的默认安装目录查找exe文件（Program FilesUsers）
 
-    从path查找program_name。从path-Users中查找第二层目录中的AppData里的program_name
+    从path查找program_name。从path-Users中查找第二层目录中的AppData里的program_name'''
     if file_list is None
         file_list = []
     try
@@ -54,7 +54,7 @@ def find_chrome_util(exe_dirs=None) - str  None
     os_name = platform.system()
 
     def find_chrome_path(exe_dir=None)
-        查找 Chrome 浏览器路径
+        '''查找 Chrome 浏览器路径'''
         def find_win_chrome_path()
             查找 Windows 系统下的 Chrome 路径
             default_paths = [rCProgram FilesGoogleChromeApplicationchrome.exe, rCProgram Files (x86)GoogleChromeApplicationchrome.exe]
@@ -69,7 +69,7 @@ def find_chrome_util(exe_dirs=None) - str  None
             return find_win_exe(program_name=r(i)chrome.exe$, default_exe_dirs=exe_dir)
 
         def find_linux_chrome_path()
-            查找 Linux 系统下的 Chrome 路径
+            '''查找 Linux 系统下的 Chrome 路径'''
             # httpsgithub.comactionsrunner-imagesblobubuntu2220241006.1imagesubuntuUbuntu2204-Readme.md
             common_paths = ['usrbingoogle-chrome', 'usrbinchromium-browser', 'optgooglechromechrome', 'optgooglechromegoogle-chrome']
             for path in common_paths
