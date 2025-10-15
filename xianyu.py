@@ -4,12 +4,12 @@ from playwright.sync_api import TimeoutError
 import time
 import datetime
 import os
-import platform
 from find_chrome_util import find_chrome_util
 
 def run(playwright: Playwright) -> None:
     '''browser = playwright.chromium.launch(headless=False)
     context = browser.new_context(color_scheme="dark", storage_state="auth.json")'''
+    import platform
     browser = playwright.chromium.launch(headless=platform.system() != "Windows", executable_path=find_chrome_util())
     context = browser.new_context(color_scheme="dark")
     page = context.new_page()
