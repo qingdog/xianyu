@@ -14,7 +14,7 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context(color_scheme="dark")
     page = context.new_page()
     
-    page.goto("http://www.xianyudanji.ai/")
+    try: page.goto("https://www.xianyudanji.ai/") except Exception as e: print(e)
     '''
     try: page.goto('https://example.com', wait_until='domcontentloaded', timeout=3000)
     except Exception as e: 
@@ -25,14 +25,18 @@ def run(playwright: Playwright) -> None:
     # 或者等待一段时间让JS执行
     page.wait_for_timeout(1000)
     '''
+    from dotenv import load_dotenv
+    load_dotenv()
+    
     page.get_by_role("button", name="Close this dialog").click()
     page.get_by_role("link", name=" 登录").click()
     page.get_by_role("textbox", name="请输入电子邮箱/用户名").click()
-    page.get_by_role("textbox", name="请输入电子邮箱/用户名").fill("1759765836@qq.com")
+    page.get_by_role("textbox", name="请输入电子邮箱/用户名").fill(os.getenv("username"))
     page.get_by_role("textbox", name="请输入电子邮箱/用户名").press("Tab")
     page.get_by_role("link", name="忘记密码？").press("Tab")
-    page.get_by_role("textbox", name="请输入密码").fill("1759765836")
-    page.get_by_role("button", name="立即登录").click()
+    page.get_by_role("textbox", name="请输入密码").fill(os.getenv("password"))
+    
+    try: page.get_by_role("button", name="立即登录").click() except Exception as e: print(e)
     
     try:
         # 尝试访问页面
