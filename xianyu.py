@@ -14,7 +14,8 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context(color_scheme="dark")
     page = context.new_page()
     
-    try: page.goto("https://www.xianyudanji.ai/") except Exception as e: print(e)
+    try: page.goto("https://www.xianyudanji.ai/") 
+    except Exception as e: print(e)
     '''
     try: page.goto('https://example.com', wait_until='domcontentloaded', timeout=3000)
     except Exception as e: 
@@ -36,7 +37,8 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="忘记密码？").press("Tab")
     page.get_by_role("textbox", name="请输入密码").fill(os.getenv("password"))
     
-    try: page.get_by_role("button", name="立即登录").click() except Exception as e: print(e)
+    try: page.get_by_role("button", name="立即登录").click() 
+    except Exception as e: print(e)
     
     try:
         # 尝试访问页面
