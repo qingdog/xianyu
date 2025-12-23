@@ -14,7 +14,7 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context(color_scheme="dark")
     page = context.new_page()
     
-    try: page.goto("https://www.xianyudanji.ai/") 
+    try: page.goto("https://www.xianyudanji.to/") 
     except Exception as e: print(e)
     '''
     try: page.goto('https://example.com', wait_until='domcontentloaded', timeout=3000)
@@ -43,7 +43,7 @@ def run(playwright: Playwright) -> None:
     try:
         # 尝试访问页面
         #page.goto("https://www.baidu.com/", timeout=30000)
-        page.goto("https://www.xianyudanji.ai/", timeout=30000)
+        page.goto("https://www.xianyudanji.to/", timeout=30000)
         print("页面加载成功")
     except Exception as e:
         if "ERR_ABORTED" in str(e) or "ERR_CONNECTION_RESET" in str(e):
@@ -119,7 +119,7 @@ def run(playwright: Playwright) -> None:
             print(e)
         
     
-    #page.goto("https://www.xianyudanji.ai/user/aff")
+    #page.goto("https://www.xianyudanji.to/user/aff")
     #page.get_by_text("赞助币钱包 0.9 当前余额 0 累计消费 今日已签到").click(button="right")
     title = page.evaluate('document.title')
     print(f"页面标题: {title}")  # 输出: 页面标题: Example Domain
