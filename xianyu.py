@@ -5,6 +5,7 @@ from playwright.sync_api import Playwright, sync_playwright, expect
 def run(playwright: Playwright) -> None:
     #browser = playwright.chromium.launch(headless=True)
     import platform
+    from find_chrome_util import find_chrome_util
     browser = playwright.chromium.launch(headless=platform.system() != "Windows", executable_path=find_chrome_util())
     
     context = browser.new_context(color_scheme="dark", storage_state=r"auth.json")
